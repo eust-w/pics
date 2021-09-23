@@ -480,5 +480,3 @@
     }
 
 })(window, document);
-
-
