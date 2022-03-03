@@ -1,0 +1,19 @@
+name: 同步到Gitee
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: 同步信息
+        run:  |
+          cd .
+          git config --global init.defaultBranch master
+          git config --global http.postBuffer 524288000
+          git config --global user.name "eust-w"
+          git config --global user.email "eustancewu@gmail.com"
+          git remote add gitee https://eustance:${{ secrets.GITEE_TOKEN }}@gitee.com/eustance/pics.git
+          git fetch gitee main
+          git merge gitee/main -m "merge from github"
+          git push gitee main
