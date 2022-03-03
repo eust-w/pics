@@ -1,4 +1,5 @@
-name: 同步到Gitee
+
+name: 同步到gitee
 on: push
 
 jobs:
@@ -15,5 +16,5 @@ jobs:
           git config --global user.email "eustancewu@gmail.com"
           git remote add gitee https://eustance:${{ secrets.GITEE_TOKEN }}@gitee.com/eustance/pics.git
           git fetch gitee main
-          git merge gitee/main -m "merge from github"
+          git merge gitee/main -m "merge from github" --allow-unrelated-histories
           git push gitee main
