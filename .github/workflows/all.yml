@@ -13,6 +13,6 @@ jobs:
         bucket: picpools
         access-key: ${{ secrets.QINIU_ACCESS_KEY }}
         secret-key: ${{ secrets.QINIU_SECRET_KEY }}
-        base-folder: .
+        base-folder: ./
         domain: "http://pic.longtao.fun"
         sub-domain: ""
